@@ -1,0 +1,160 @@
+//AUTOMAED GOOGLE SEARCH #1
+
+import { Builder, Browser, By, Key } from 'selenium-webdriver'
+
+async function searchGoogle() {
+  // Create a new driver
+  let driver = await new Builder().forBrowser('chrome').build();
+  await driver.get('https://www.google.com');
+  
+  // Search
+  const searchBox = await driver.findElement(By.name('q'));
+  await searchBox.sendKeys('Selenium Node.js', Key.RETURN);
+
+  // Close the browser after waiting 10 seconds
+  await driver.sleep(10*1000);
+  await driver.quit();
+}
+
+searchGoogle();
+
+-------------------------------------------------------------------------------------------------------
+
+// TEXT EXTRACTION #2
+
+import { Builder, By, Browser } from "selenium-webdriver";
+
+async function getText() {
+  // Create a new driver
+  let driver = await new Builder().forBrowser('chrome').build();
+  await driver.get('https://www.example.com');
+  
+  // Get Heading 
+  let text = await driver.findElement(By.tagName('h1')).getText();
+  console.log("Heading text:", text);
+  
+  // Get Paragraph
+  text = await driver.findElement(By.tagName('p')).getText();
+  console.log("Paragraph text:", text);
+
+  // Close the browser
+  await driver.sleep(5*1000);
+  await driver.quit();
+  return text;
+}
+
+getText();
+
+-------------------------------------------------------------------------------------------------------
+
+//NAVIGATION #3 FBR
+
+
+import { Builder, Browser } from "selenium-webdriver";
+
+async function bfr() {
+  let driver = await new Builder().forBrowser('chrome').build();
+
+  // Go to a page
+  await driver.get('https://www.example.com');
+  console.log('Example page visited');
+  
+  await driver.sleep(2*1000);
+
+  await driver.navigate().back();
+  console.log('Navigated back');
+
+  await driver.sleep(2*1000);
+
+  await driver.navigate().forward();
+  console.log('Navigated forward');
+
+  await driver.sleep(2*1000);
+
+  await driver.navigate().refresh();
+  console.log('Page refreshed');
+
+  await driver.sleep(2*1000);
+  
+  await driver.quit();
+  console.log('Browser closed');
+}
+
+bfr();
+
+-------------------------------------------------------------------------------------------------------
+
+//COUNT HYPERLINKS #4
+
+
+import { Builder, Browser, By } from 'selenium-webdriver';
+
+async function getLinkCount() {
+  const driver = await new Builder().forBrowser('chrome').build();
+  await driver.get('https://www.npmjs.com/package/selenium-webdriver');
+  
+  const links = await driver.findElements(By.tagName('a'));
+  console.log(`Number of links: ${links.length}`);
+
+  // Optional
+  for (let link of links) {
+    console.log(await link.getAttribute('href'));
+  }
+
+  await driver.sleep(10*1000);
+  await driver.quit();
+}
+
+getLinkCount();
+
+-------------------------------------------------------------------------------------------------------
+
+//AUTOMATED LOGIN TESTING #5
+
+
+import { Builder, Browser, By, Key } from "selenium-webdriver";
+
+async function test() {
+  const driver = await new Builder().forBrowser('chrome').build();
+  await driver.get('https://practicetestautomation.com/practice-test-login/');
+
+  await driver.findElement(By.id('username')).sendKeys('student', Key.RETURN);
+  await driver.findElement(By.id('password')).sendKeys('Password123', Key.RETURN);
+  await driver.findElement(By.id('submit')).click();
+
+  await driver.sleep(3*1000);
+  const status = await driver.findElement(By.className('post-title')).getText();
+  console.log(status);
+
+  await driver.sleep(5*1000);
+  await driver.quit();
+}
+
+test();
+
+-------------------------------------------------------------------------------------------------------
+
+//SCREEN SHOT #6
+
+
+const { Builder, By } = require('selenium-webdriver');
+const fs = require('fs');
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+async function captureScreenshot() { 
+ const driver = await new Builder().forBrowser('chrome').build();
+ try { 
+ await driver.get('https://www.wikipedia.org');
+ await sleep(2000);
+ const screenshot = await driver.takeScreenshot();
+ fs.writeFileSync('wiki_screenshot.png', screenshot, 'base64');
+ console.log('Screenshot saved.');
+ } catch (err) { 
+ console.error('Capture failed:', err.message);
+ } finally { 
+ await driver.quit();
+ } 
+} 
+captureScreenshot();
+
+
+

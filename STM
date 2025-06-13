@@ -107,7 +107,14 @@ async function getLinkCount() {
 
 getLinkCount();
 
--------------------------------------------------------------------------------------------------------
+7. What is Win Runner explain about it's functionalities.
+	WinRunner is a Windows-based software testing tool used for automated functional testing of applications. It allowed QA testers to record, verify, and replay user interactions with the GUI to identify defects in the application under test.
+Details:
+•	Full Name: HP WinRunner
+•	Platform: Windows
+•	Script Language: TSL (Test Script Language) – a C-like proprietary scripting language
+•	Successor: HP Unified Functional Testing (UFT), previously known as QuickTest Professional (QTP)
+
 
 //AUTOMATED LOGIN TESTING #5
 
@@ -156,5 +163,67 @@ async function captureScreenshot() {
 } 
 captureScreenshot();
 
+
+-------------------------------------------------------------------------------------------------------
+
+
+7. What is Win Runner explain about it's functionalities.
+	WinRunner is a Windows-based software testing tool used for automated functional testing of applications. It allowed QA testers to record, verify, and replay user interactions with the GUI to identify defects in the application under test.
+Details:
+•	Full Name: HP WinRunner
+•	Platform: Windows
+•	Script Language: TSL (Test Script Language) – a C-like proprietary scripting language
+•	Successor: HP Unified Functional Testing (UFT), previously known as QuickTest Professional (QTP)
+
+Core Functionalities of WinRunner
+1. Record and Playback
+•	Records user actions on a GUI (mouse clicks, keystrokes)
+•	Generates test scripts automatically
+•	Allows playback for regression testing
+
+2. Test Script Language (TSL)
+•	A scripting language used to customize and enhance tests
+•	Enables creation of complex conditional logic, loops, parameterization, etc.
+
+3. GUI Map
+•	Stores information about GUI objects in the application
+•	Allows testers to interact with UI elements via logical names
+
+4. Checkpoints
+•	Built-in feature to verify application behavior
+•	Types of checkpoints:
+o	GUI Checkpoints: Verify properties of GUI objects
+o	Bitmap Checkpoints: Compare screen snapshots
+o	Database Checkpoints: Validate backend database values
+o	Text Checkpoints: Validate static text on the screen
+
+5. Synchronization
+•	Ensures that test execution waits for the application to reach a ready state
+•	Helps avoid flaky tests due to timing issues
+
+6. Data-Driven Testing
+•	Allows testers to separate test logic from test data
+•	Uses external data sources (Excel, text files, databases) to run the same test with multiple input sets
+
+7. Error Handling
+•	Provides tl_step, tl_exit, and exception handling mechanisms
+•	Allows graceful test continuation or termination on error
+
+8. Integration with TestDirector
+•	WinRunner was often used alongside TestDirector (later HP Quality Center, now Micro Focus ALM)
+•	Supported test management, defect tracking, and reporting
+________________________________________
+Why It Was Discontinued
+•	Outdated technology (WinRunner supported only Windows GUI apps)
+•	No support for modern technologies like web, mobile, or cloud apps
+•	Replaced by more powerful and flexible tools like QTP/UFT and modern frameworks (e.g., Selenium, Cypress)
+________________________________________
+Legacy and Relevance
+Although WinRunner is no longer used in modern QA teams, its influence persists:
+•	Introduced foundational concepts such as:
+o	GUI object recognition
+o	Data-driven testing
+o	Checkpointing
+•	These concepts remain integral to tools such as UFT, Selenium, and others.
 
 
